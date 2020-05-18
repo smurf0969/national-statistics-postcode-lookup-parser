@@ -1,4 +1,4 @@
-# national-statistics-postcode-lookup-parser
+# national-statistics-postcode-lookup-parser ![.NET Core](https://github.com/smurf0969/national-statistics-postcode-lookup-parser/workflows/.NET%20Core/badge.svg)  
 This project is a Visual Studio C# .net core cross-platform console application for parsing csv formatted files into json and also reducing the input fields.  
 This came about due to a friends request to provide a quick solution to replace an existing application by a company that has unfortunately ceased trading.  
 The upcoming changes to the layout of the NSPL data would break the existing application that can no longer be obtained.  
