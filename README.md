@@ -21,6 +21,6 @@ Help and suggestions are more than welcome.
 
 ## Postcode, Geo, Latitude, Longitude, County, Country
 All data is available freely via the gov.uk website and  Office for National Statistics sites, but care must be taken to adhere to the license agreements as the data is compiled from multiple sources. 
->  Contains OS data © Crown copyright and database rights [year]
->  Contains Royal Mail data © Royal Mail copyright and database rights [year]
+>  Contains OS data © Crown copyright and database rights [year]  
+>  Contains Royal Mail data © Royal Mail copyright and database rights [year]  
 >  Contains National Statistics data © Crown copyright and database rights [year]. 
