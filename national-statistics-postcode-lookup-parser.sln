@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29905.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "national-statistics-postcode-lookup-parser", "national-statistics-postcode-lookup-parser.csproj", "{FDF72462-0637-4F00-9237-00615619D73E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FDF72462-0637-4F00-9237-00615619D73E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDF72462-0637-4F00-9237-00615619D73E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDF72462-0637-4F00-9237-00615619D73E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDF72462-0637-4F00-9237-00615619D73E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A1E8113D-02A0-4C90-832E-EB39BE0D5F19}
+	EndGlobalSection
+EndGlobal
