@@ -15,10 +15,16 @@ namespace national_statistics_postcode_lookup_parser
         static ConcurrentQueue<string> PcFiles = new ConcurrentQueue<string>();
         static void Main(string[] args)
         {
-            var unzippedDir = @"F:\Stuart\Dowloads\NSPL_FEB_2020_UK";
-            string ZipPassword = null;
-            int ZipCompressionLevel = 7;//0-9, 9 being the best compression
-            bool PressAnyKeyToContinue = true;
+            // ###################################################################
+            // TODO: Load from file or via args
+            // ###################################################################
+            // EDIT THESE VARIABLES
+            // ###################################################################
+                var unzippedDir = @"F:\Stuart\Dowloads\NSPL_FEB_2020_UK";
+                string ZipPassword = null;
+                int ZipCompressionLevel = 7;//0-9, 9 being the best compression
+                bool PressAnyKeyToContinue = true;
+            // ###################################################################
 
             Console.WriteLine("National Statistics Postcode - Parser / Remapper");
             Console.WriteLine();
