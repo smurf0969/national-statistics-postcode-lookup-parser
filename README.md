@@ -2,6 +2,7 @@
 This project is a Visual Studio C# .net core cross-platform console application for parsing csv formatted files into json and also reducing the input fields.  
 This came about due to a friends request to provide a quick solution to replace an existing application by a company that has unfortunately ceased trading.  
 The upcoming changes to the layout of the NSPL data would break the existing application that can no longer be obtained.  
+Data obtained from ![National Statistics Postcode Lookup](https://geoportal.statistics.gov.uk/search?collection=Dataset&sort=-modified&tags=all(PRD_NSPL))
 
 ## Functionality 
 As this project was going to be used as a direct replacement, existing functionality and compatibility has to be maintained.  
