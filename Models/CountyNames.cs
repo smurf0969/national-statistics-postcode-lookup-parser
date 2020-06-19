@@ -12,6 +12,7 @@ namespace national_statistics_postcode_lookup_parser.Models
     public class CountyNames
     {
         private static readonly string expectedFirstLine = "CTY10CD,CTY10NM,,";
+        private static readonly string expectedFirstLineFromMay2020 = "CTY20CD,CTY20NM,,";
         /// <summary>
         /// Partial check of first line as raw csv has unmapped columns.
         /// </summary>
@@ -19,7 +20,7 @@ namespace national_statistics_postcode_lookup_parser.Models
         /// <returns></returns>
         public static bool CsvCheckOK(string line)
         {
-            return line.StartsWith(expectedFirstLine.TrimEnd(','));
+            return line.StartsWith(expectedFirstLine.TrimEnd(','))|| line.StartsWith(expectedFirstLineFromMay2020.TrimEnd(','));
         }
         public static CountyNames FromLine(string line)
         {

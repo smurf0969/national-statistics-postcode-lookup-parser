@@ -20,10 +20,11 @@ namespace national_statistics_postcode_lookup_parser
             // ###################################################################
             // EDIT THESE VARIABLES
             // ###################################################################
-                var unzippedDir = @"F:\Stuart\Dowloads\NSPL_FEB_2020_UK";
+                var unzippedDir = @"F:\Stuart\Dowloads\NSPL_MAY_2020_UK";
                 string ZipPassword = null;
                 int ZipCompressionLevel = 7;//0-9, 9 being the best compression
                 bool PressAnyKeyToContinue = true;
+                bool keepProcessedFiles = true;
             // ###################################################################
 
             Console.WriteLine("National Statistics Postcode - Parser / Remapper");
@@ -71,8 +72,8 @@ namespace national_statistics_postcode_lookup_parser
                     }
                 }
             }
-
-            while (Directory.Exists(AppConst.ProcessedPath))
+            var timeout = DateTime.UtcNow.AddSeconds(30).Ticks;
+            while (Directory.Exists(AppConst.ProcessedPath)&&DateTime.UtcNow.Ticks<=timeout)
             {
                 //cleanup may still happening
                 Task.Delay(1000);
@@ -81,7 +82,7 @@ namespace national_statistics_postcode_lookup_parser
             if (!Directory.Exists(AppConst.ProcessedPath)) Directory.CreateDirectory(AppConst.ProcessedPath);
 
             //we should now only have the files left that we want to work with.
-            Directory.EnumerateFiles(AppConst.TmpPath,"*.csv").ToList().ForEach((x) => {
+            if(Directory.Exists(AppConst.TmpPath))Directory.EnumerateFiles(AppConst.TmpPath,"*.csv").ToList().ForEach((x) => {
                 FileInfo fi = new FileInfo(x);
                 //currently should start country or county
                 var fn = fi.Name.Substring(0, 7).ToLower().TrimEnd();
@@ -142,7 +143,7 @@ namespace national_statistics_postcode_lookup_parser
 
             Console.WriteLine();
             Console.Write("Postcode files to process: ");
-            var postcodeCsvFiles = Directory.EnumerateFiles(AppConst.DataCsvPath).ToList();
+            var postcodeCsvFiles =!string.IsNullOrEmpty(AppConst.DataCsvPath)? Directory.EnumerateFiles(AppConst.DataCsvPath).ToList():new List<string>();
             Console.WriteLine(postcodeCsvFiles.Count);
             if (postcodeCsvFiles.Count > 0)
             {
@@ -151,7 +152,7 @@ namespace national_statistics_postcode_lookup_parser
                 {
                     PcFiles.Enqueue(postcodeCsvFiles[x]);
                 }
-                Console.Write("Pleasw Wait");
+                Console.Write("Please Wait");
                 var sw = new Stopwatch();
                 sw.Start();
                 Task[] tasks = new Task[AppConst.ProcessTaskCount];
@@ -193,7 +194,7 @@ namespace national_statistics_postcode_lookup_parser
                 try
                 {
 
-                    Directory.Delete(AppConst.ProcessedPath, true);
+                    if(!keepProcessedFiles) Directory.Delete(AppConst.ProcessedPath, true);
                     Directory.Delete(AppConst.TmpPath, true);
                     //reverse traverse data folders
                     var dn = AppConst.DataCsvPath;
